@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chat - CampoLink</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="chat-page">
+<header class="header">
+  <div class="container wrap">
+    <a class="brand" href="index.html">
+        <img src="img/logo.png" alt="Logo CampoLink">
+    
+    </a>
+    <nav class="nav">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="#" style="color:var(--green-dark);"><i class="fas fa-comments"></i> Chat y Pedidos</a>
+      <a href="publicar.html"><i class="fas fa-cloud-upload-alt"></i> Publicar</a>
+    </nav>
+            <div class="cta-group">
+                <a class="btn secondary" data-go="comprador.html">Soy Comprador</a>
+                <a class="btn primary" data-go="vendedor.html">Soy Vendedor</a>
+            </div>
+  </div>
+</header>
+<main class="container">
+    <section class="chat-wrap section">
+        <div class="chat-header">
+            <div>
+                <h3 style="margin:0; font-size:1.2em; color:var(--green-dark)"><i class="fas fa-user-circle"></i> Conversación con Finca La Esperanza</h3>
+                <small style="color:var(--muted)">Producto: Papa Pastusa (Lote A) | Estado: <strong style="color:var(--blue)">Pendiente de Pago</strong></small>
+            </div>
+            <a href="#" class="btn secondary" style="padding:8px 15px;"><i class="fas fa-phone-alt"></i> Llamar</a>
+        </div>
+        <div class="chat-area" id="chat-area">
+            <div class="bubble them">¡Hola! Estoy interesado en 100 kg de la Papa Pastusa. ¿Podemos negociar el precio final por volumen?</div>
+            <div class="bubble me">Hola, claro que sí. Por 100kg te puedo dejar a $3.000 COP/Kg. ¿Qué dices?</div>
+            <div class="bubble them">¡Me parece perfecto! Te confirmo la orden de 100 kg. Por favor, envíame los detalles para el pago por transferencia.</div>
+            <div class="bubble me">Orden confirmada por $300.000 COP. Enviando detalles de pago y entrega. ¡Muchas gracias por tu compra!</div>
+        </div>
+        <form class="chat-input" id="chat-form">
+            <input type="text" id="message-input" placeholder="Escribe tu mensaje o adjunta un documento..." required>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+        </form>
+    </section>
+    <section style="max-width:850px;margin:20px auto; text-align:center;">
+        <h2 style="font-size:24px;"><i class="fas fa-list-alt"></i> Pedidos Recientes (Simulación)</h2>
+        <div class="card" style="padding:15px; display:flex; justify-content:space-between; align-items:center; background:var(--green-light);">
+            <div style="text-align:left;">
+                <p style="font-weight:600; margin:0;">Orden #00123: 100Kg Papa Pastusa</p>
+                <small style="color:var(--muted);">Cliente: Ana R. | Total: $300.000 COP</small>
+            </div>
+            <a href="chat.html" class="btn primary" style="background:var(--blue); border-color:var(--blue);"><i class="fas fa-eye"></i> Ver Chat</a>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="container">© 2025 CampoLink. Todos los derechos reservados.</div>
+</footer>
+
+<div id="login-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 id="modal-title">Iniciar Sesión</h3>
+        <form id="login-form">
+            <input type="email" placeholder="Correo electrónico" required style="margin-bottom:10px;">
+            <input type="password" placeholder="Contraseña" required style="margin-bottom:15px;">
+            <div id="register-fields" style="display:none;margin-bottom:15px;">
+              <input type="text" placeholder="Nombre completo" style="margin-bottom:10px;">
+              <input type="text" placeholder="Teléfono (Opcional)">
+            </div>
+            <button type="submit" class="btn primary" style="width:100%;">Ingresar / Registrarme</button>
+        </form>
+        <p style="text-align:center;margin-top:15px;color:var(--muted);font-size:14px;">
+            ¿No tienes cuenta? <a href="#" id="show-register" style="color:var(--green);font-weight:600;">Regístrate</a>
+        </p>
+    </div>
+</div>
+
+<div id="cart-modal" class="modal" style="display:none;">
+    <div class="modal-content" style="max-width: 500px; padding: 25px;">
+        <span class="close-btn" data-close-modal="cart">&times;</span>
+        <h3 style="margin-top:0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+            <i class="fas fa-shopping-cart" style="color:var(--green);"></i> Mi Pedido
+        </h3>
+        
+        <div id="cart-items-container" style="max-height: 400px; overflow-y: auto; padding-right: 15px;">
+            <p id="cart-empty-message" style="text-align: center; color: var(--muted); padding: 20px;">
+                Tu carrito está vacío. ¡Empieza a llenar tu canasta!
+            </p>
+        </div>
+
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; font-size: 1.1em; font-weight: 600;">
+                <span>Total estimado:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button class="btn primary" id="cart-finalize" style="width: 100%; margin-top: 15px;">
+                <i class="fas fa-arrow-right"></i> Finalizar Pedido
+            </button>
+            <p style="font-size: 0.85em; color: var(--muted); text-align: center; margin-top: 10px;">
+                El precio final puede variar según la negociación con el vendedor.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="toast-notification" class="toast-notification" aria-live="polite" aria-atomic="true">
+    <div class="toast-content">
+        <i class="fas fa-check-circle toast-icon" aria-hidden="true"></i>
+        <span id="toast-message" class="toast-message">Producto añadido al carrito.</span>
+        <div class="toast-cart-summary" aria-hidden="true">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="toast-count" class="toast-count">0</span>
+        </div>
+    </div>
+</div>
+
+<script src="assets/app.js"></script>
+<script>
+    // Lógica simulada de envío de chat
+    document.getElementById('chat-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = document.getElementById('message-input');
+        const message = input.value.trim();
+        const chatArea = document.getElementById('chat-area');
+
+        if (message) {
+            // Añadir el mensaje como 'bubble me'
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble', 'me');
+            bubble.textContent = message;
+            chatArea.appendChild(bubble);
+
+            // Simular respuesta del otro usuario
+            if (message.toLowerCase().includes('precio') || message.toLowerCase().includes('negociar')) {
+                setTimeout(() => {
+                    const response = document.createElement('div');
+                    response.classList.add('bubble', 'them');
+                    response.textContent = 'Entiendo. Por 100 kg, el precio final que puedo ofrecer es $2.900/Kg. ¿Qué le parece?';
+                    chatArea.appendChild(response);
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                }, 1500);
+            } else {
+                setTimeout(() => {
+                    const response = document.createElement('div');
+                    response.classList.add('bubble', 'them');
+                    response.textContent = 'Mensaje recibido. En un momento te confirmo.';
+                    chatArea.appendChild(response);
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                }, 1500);
+            }
+
+            input.value = '';
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marketplace - CampoLink</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="assets/style.css"> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header class="header">
+  <div class="container wrap">
+    <a class="brand" href="index.html">
+        <img src="img/logo.png" alt="Logo CampoLink">
+    
+    </a>
+    <nav class="nav">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="productos.html" style="color:var(--green-dark);"><i class="fas fa-store"></i> Marketplace</a>
+      <a href="sobre-nosotros.html"><i class="fas fa-info-circle"></i> Sobre Nosotros</a>
+      <a class="btn secondary" href="#" id="open-login-modal">
+        <i class="fas fa-user-circle"></i> Iniciar Sesión
+      </a>
+    </nav>
+    <div class="cta-group">
+      <a class="btn secondary" data-go="comprador.html">Soy Comprador</a>
+      <a class="btn primary" data-go="vendedor.html">Soy Vendedor</a>
+    </div>
+    <div class="cta-group" style="margin-left:12px;">
+      <a href="#" class="cart-icon" id="open-cart-modal" style="position:relative;margin-right:10px;color:var(--text-dark);">
+        <i class="fas fa-shopping-cart" style="font-size: 20px;"></i>
+        <span id="cart-count" style="position:absolute;top:-8px;right:-10px;background:var(--blue);color:white;border-radius:50%;padding:2px 6px;font-size:12px;font-weight:700;line-height:1;">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="container" style="margin-top:100px;">
+  <section class="section" style="padding:20px; margin-bottom: 20px;">
+      <h2 style="margin-top:0; font-size: 28px;"><i class="fas fa-search"></i> Explorar Cosechas en Sibaté y Soacha</h2>
+      <p class="lead">Usa los filtros para encontrar rápidamente la oferta que mejor se adapte a tu negocio.</p>
+      
+  </section>
+
+  <section class="section">
+    <h3 style="margin-top:0; color:var(--green-dark); font-size: 22px;">Resultados de Búsqueda</h3>
+  
+  <div class="filter-controls container" style="margin-bottom: 30px; padding-top: 15px;">
+    <div class="filter-card" style="padding:18px; border-radius:12px; background:#fff; box-shadow:0 6px 20px rgba(34,79,39,0.04); border:1px solid rgba(34,79,39,0.06)">
+      <div class="form-row" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+        <input id="search-input" placeholder="Buscar por producto (ej: Fresa, Papa)" style="flex:1; min-width:220px; padding:12px; border:1px solid #e6efe6; border-radius:8px;">
+        <select id="category-filter" style="min-width:220px; padding:12px; border:1px solid #e6efe6; border-radius:8px;">
+          <option value="all">Todas las Categorías</option>
+          <option value="Tuberculos y Raices">Tubérculos y Raíces</option>
+          <option value="Frutas">Frutas</option>
+          <option value="Vegetales y Hortalizas">Vegetales y Hortalizas</option>
+          <option value="Lacteos y Derivados">Lácteos y Derivados</option>
+          <option value="Granos y Tostados">Granos y Tostados</option>
+        </select>
+        <select id="city-filter" style="min-width:180px; padding:12px; border:1px solid #e6efe6; border-radius:8px;">
+          <option value="all">Todos los Municipios</option>
+          <option value="Sibate">Sibaté</option>
+          <option value="Soacha">Soacha</option>
+        </select>
+        <button class="btn primary" style="min-width:140px; background:var(--green); border:none; color:white; padding:12px 16px; border-radius:10px; font-weight:700; box-shadow:0 6px 0 rgba(0,0,0,0.02);"> <i class="fas fa-filter"></i> Filtrar</button>
+      </div>
+      <div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center; gap:12px;">
+        <div style="font-weight:600; color:var(--text-dark);">Mostrando <span id="product-count">13</span> productos.</div>
+        <div id="no-results-message" style="display:none; color:var(--muted); font-weight:600;">No se encontraron productos con esos filtros.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="products">
+
+
+
+      <div class="product-card">
+        <img src="img/tomate.jpg" alt="Tomate">
+        <div class="product-info">
+            <h3>Tomate Chonto Premium</h3>
+            <p class="price">$2.500 / Kg</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> Finca La Esperanza, Sibaté</p>
+            <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+                <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+                <button class="btn primary add-to-cart-btn" data-product-id="1" data-product-name="Tomate Chonto Premium" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>Añadir</span>
+                </button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="img/naranja.jpg" alt="Fresa">
+        <div class="product-info">
+            <h3>Fresa Orgánica (Bandeja 500g)</h3>
+            <p class="price">$5.800 / Unidad</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> AgroSol, Soacha</p>
+            <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+                <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+                <button class="btn primary add-to-cart-btn" data-product-id="2" data-product-name="Fresa Orgánica" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>Añadir</span>
+                </button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="img/verduras.jpg" alt="Papa">
+        <div class="product-info">
+            <h3>Papa Pastusa Tuberosa</h3>
+            <p class="price">$1.950 / Kg</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> Cultivos Hermanos, Sibaté</p>
+            <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+                <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+                <button class="btn primary add-to-cart-btn" data-product-id="3" data-product-name="Papa Pastusa Tuberosa" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>Añadir</span>
+                </button>
+            </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="img/manzana.jpg" alt="Queso">
+        <div class="product-info">
+            <h3>Queso Campesino Artesanal</h3>
+            <p class="price">$9.500 / Unidad</p>
+            <p class="location"><i class="fas fa-map-marker-alt"></i> Lácteos El Campo, Soacha</p>
+            <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+                <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+                <button class="btn primary add-to-cart-btn" data-product-id="4" data-product-name="Queso Campesino Artesanal" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>Añadir</span>
+                </button>
+            </div>
+        </div>
+      </div>
+
+      <!-- Added products from image set -->
+      <div class="product-card" data-product-id="6" data-product-name="Acelga Fresca">
+        <img src="img/acelga.jpg" alt="Acelga Fresca" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Acelga Fresca</h3>
+          <p class="price">$1.200 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Huerta El Rosal — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="6" data-product-name="Acelga Fresca" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="7" data-product-name="Ají Picante">
+        <img src="img/aji.jpg" alt="Ají Picante" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Ají Picante</h3>
+          <p class="price">$2.200 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Agrícola El Valle — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="7" data-product-name="Ají Picante" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="8" data-product-name="Arequipe Artesanal">
+        <img src="img/arequipe.jpg" alt="Arequipe Artesanal" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Arequipe Artesanal</h3>
+          <p class="price">$7.800 / Frasco</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Dulcería La Abuela — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="8" data-product-name="Arequipe Artesanal" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="9" data-product-name="Arracacha Blanca">
+        <img src="img/arracachablanca.jpg" alt="Arracacha Blanca" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Arracacha Blanca</h3>
+          <p class="price">$2.100 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Raíces Andinas — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="9" data-product-name="Arracacha Blanca" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="10" data-product-name="Brócoli">
+        <img src="img/brocoli.jpg" alt="Brócoli" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Brócoli</h3>
+          <p class="price">$3.400 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Huerta Verde — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="10" data-product-name="Brócoli" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="11" data-product-name="Café Tostado">
+        <img src="img/cafe.jpg" alt="Café Tostado" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Café Tostado</h3>
+          <p class="price">$15.000 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Café Monte — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="11" data-product-name="Café Tostado" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="12" data-product-name="Camote">
+        <img src="img/camote.jpg" alt="Camote" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Camote</h3>
+          <p class="price">$1.700 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Huerto San José — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="12" data-product-name="Camote" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="13" data-product-name="Cebolla">
+        <img src="img/cebolla.jpg" alt="Cebolla" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Cebolla</h3>
+          <p class="price">$1.600 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> La Cosecha — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="13" data-product-name="Cebolla" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="14" data-product-name="Chocolate Artesanal">
+        <img src="img/chocolate.jpg" alt="Chocolate Artesanal" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Chocolate Artesanal</h3>
+          <p class="price">$12.000 / Tableta</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Chocolates Campo — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="14" data-product-name="Chocolate Artesanal" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="15" data-product-name="Granadilla">
+        <img src="img/granadilla.jpg" alt="Granadilla" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Granadilla</h3>
+          <p class="price">$2.200 / Unidad</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Frutas del Valle — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="15" data-product-name="Granadilla" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="16" data-product-name="Huevos (Docena)">
+        <img src="img/huevos.jpg" alt="Huevos (Docena)" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Huevos (Docena)</h3>
+          <p class="price">$8.500 / Docena</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Gallinas Felices — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="16" data-product-name="Huevos (Docena)" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="17" data-product-name="Lechuga">
+        <img src="img/lechuga.jpg" alt="Lechuga" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Lechuga</h3>
+          <p class="price">$900 / Unidad</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Huerta El Prado — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="17" data-product-name="Lechuga" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="18" data-product-name="Mermelada Artesanal">
+        <img src="img/mermelada.jpg" alt="Mermelada Artesanal" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Mermelada Artesanal</h3>
+          <p class="price">$9.500 / Frasco</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Dulcería La Abuela — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="18" data-product-name="Mermelada Artesanal" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="19" data-product-name="Miel Pura">
+        <img src="img/miel.jpg" alt="Miel Pura" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Miel Pura</h3>
+          <p class="price">$18.000 / Frasco</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Colmenas Sibaté — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="19" data-product-name="Miel Pura" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="20" data-product-name="Mora">
+        <img src="img/mora.jpg" alt="Mora" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Mora</h3>
+          <p class="price">$4.200 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Frutos Andinos — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="20" data-product-name="Mora" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="21" data-product-name="Naranja">
+        <img src="img/naranja.jpg" alt="Naranja" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Naranja</h3>
+          <p class="price">$900 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Naranjal La Luz — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="21" data-product-name="Naranja" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="22" data-product-name="Pan Casero">
+        <img src="img/pan_casero.jpg" alt="Pan Casero" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Pan Casero</h3>
+          <p class="price">$4.000 / Paquete</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Panadería Campo — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="22" data-product-name="Pan Casero" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="23" data-product-name="Papa Sabanera">
+        <img src="img/papasabanera.jpg" alt="Papa Sabanera" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Papa Sabanera</h3>
+          <p class="price">$1.700 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Cultivos Hermanos — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="23" data-product-name="Papa Sabanera" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="24" data-product-name="Tomate de Árbol">
+        <img src="img/tomatearbol.jpg" alt="Tomate de Árbol" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Tomate de Árbol</h3>
+          <p class="price">$2.800 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Frutos Andinos — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="24" data-product-name="Tomate de Árbol" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="25" data-product-name="Uchuva">
+        <img src="img/uchuva.jpg" alt="Uchuva" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Uchuva</h3>
+          <p class="price">$6.000 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Frutos del Bosque — Sibaté</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="25" data-product-name="Uchuva" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="26" data-product-name="Verduras Mixtas">
+        <img src="img/verduras.jpg" alt="Verduras Mixtas" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Verduras Mixtas</h3>
+          <p class="price">$2.500 / Kg</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Huertos Urbanos — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="26" data-product-name="Verduras Mixtas" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-product-id="27" data-product-name="Yuca Frita">
+        <img src="img/yucafrita.jpg" alt="Yuca Frita" onerror="this.onerror=null;this.src='img/placeholder.jpg';">
+        <div class="product-info">
+          <h3>Yuca Frita</h3>
+          <p class="price">$3.500 / Paquete</p>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Snack Campo — Soacha</p>
+          <div class="product-actions" style="display:flex; gap:10px; margin-top:10px;">
+            <a href="chat.html" class="btn secondary" style="flex:1; text-align:center;">Chatear</a>
+            <button class="btn primary add-to-cart-btn" data-product-id="27" data-product-name="Yuca Frita" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <i class="fas fa-cart-plus"></i>
+              <span>Añadir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+        <div style="text-align:center; margin-top:30px;">
+          <a href="#" id="load-more-btn" class="btn secondary">Cargar más productos</a>
+        </div>
+  </section>
+</main>
+
+<footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>© 2025 CampoLink. Del campo a tu mesa.</div>
+  <div style="color:var(--muted);"><i class="fas fa-envelope"></i> manuelexneydertobar@gmail.com &nbsp; | &nbsp; <i class="fas fa-phone-alt"></i> 3042682102</div>
+    </div>
+</footer>
+
+<div id="login-modal" class="modal" style="display:none;">
+    <div class="modal-content"><span class="close-btn">&times;</span><h3 id="modal-title">Iniciar Sesión</h3>
+        <form id="login-form"><input type="email" placeholder="Correo electrónico" required style="margin-bottom:10px;">
+            <input type="password" placeholder="Contraseña" required style="margin-bottom:15px;"><div id="register-fields" style="display:none;margin-bottom:15px;">
+              <input type="text" placeholder="Nombre completo" style="margin-bottom:10px;"><input type="text" placeholder="Teléfono (Opcional)"></div>
+            <button type="submit" class="btn primary" style="width:100%;">Ingresar / Registrarme</button></form>
+        <p style="text-align:center;margin-top:15px;color:var(--muted);font-size:14px;">
+            ¿No tienes cuenta? <a href="#" id="show-register" style="color:var(--green);font-weight:600;">Regístrate</a></p>
+    </div>
+</div>
+<div id="open-chat-btn"><i class="fas fa-comment-dots"></i></div>
+</div>
+
+<div id="cart-modal" class="modal" style="display:none;">
+  <div class="modal-content" style="max-width: 500px; padding: 25px;">
+    <span class="close-btn" data-close-modal="cart">&times;</span>
+    <h3 style="margin-top:0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+      <i class="fas fa-shopping-cart" style="color:var(--green);"></i> Mi Pedido
+    </h3>
+        
+    <div id="cart-items-container" style="max-height: 400px; overflow-y: auto; padding-right: 15px;">
+      <p id="cart-empty-message" style="text-align: center; color: var(--muted); padding: 20px;">
+        Tu carrito está vacío. ¡Empieza a llenar tu canasta!
+      </p>
+    </div>
+
+    <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid var(--border-color);">
+      <div style="display: flex; justify-content: space-between; font-size: 1.1em; font-weight: 600;">
+        <span>Total estimado:</span>
+        <span id="cart-total">$0</span>
+      </div>
+      <button class="btn primary" id="cart-finalize" style="width: 100%; margin-top: 15px;">
+        <i class="fas fa-arrow-right"></i> Finalizar Pedido
+      </button>
+      <p style="font-size: 0.85em; color: var(--muted); text-align: center; margin-top: 10px;">
+        El precio final puede variar según la negociación con el vendedor.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="toast-notification" class="toast-notification" aria-live="polite" aria-atomic="true">
+    <div class="toast-content">
+        <i class="fas fa-check-circle toast-icon" aria-hidden="true"></i>
+        <span id="toast-message" class="toast-message">Producto añadido al carrito.</span>
+        <div class="toast-cart-summary" aria-hidden="true">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="toast-count" class="toast-count">0</span>
+        </div>
+    </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

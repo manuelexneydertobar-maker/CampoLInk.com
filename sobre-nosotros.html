@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sobre Nosotros - CampoLink</title>
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="assets/style.css"> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header class="header">
+  <div class="container wrap">
+    <a class="brand" href="index.html">
+        <img src="img/logo.png" alt="Logo CampoLink">
+  
+    </a>
+    <nav class="nav">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="productos.html"><i class="fas fa-store"></i> Marketplace</a>
+      <a href="sobre-nosotros.html" style="color:var(--green-dark);"><i class="fas fa-info-circle"></i> Sobre Nosotros</a>
+      <a class="btn secondary" href="#" id="open-login-modal">
+        <i class="fas fa-user-circle"></i> Iniciar Sesión
+      </a>
+    </nav>
+            <div class="cta-group">
+            <a class="btn secondary" data-go="comprador.html">Soy Comprador</a>
+            <a class="btn primary" data-go="vendedor.html">Soy Vendedor</a>
+            </div>
+            <div class="cta-group" style="margin-left:12px;">
+                <a href="#" class="cart-icon" id="open-cart-modal" style="position:relative;margin-right:10px;color:var(--text-dark);">
+                    <i class="fas fa-shopping-cart" style="font-size: 20px;"></i>
+                    <span id="cart-count" style="position:absolute;top:-8px;right:-10px;background:var(--blue);color:white;border-radius:50%;padding:2px 6px;font-size:12px;font-weight:700;line-height:1;">0</span>
+                </a>
+            </div>
+  </div>
+</header>
+
+<main class="container" style="margin-top:100px;">
+    <section class="section">
+        <div style="text-align:center;">
+            <h1><i class="fas fa-mountain"></i> Nuestra Historia</h1>
+            <p class="lead" style="max-width:800px; margin:0 auto 30px;">
+                CampoLink nació en 2025 con la misión de eliminar las barreras de intermediación y empoderar a los agricultores de Sibaté y Soacha, conectándolos directamente con el comercio local.
+            </p>
+        </div>
+
+        <div class="grid cols-3">
+            <div class="card" style="grid-column: span 3;">
+                <h3 style="text-align:center; font-size: 24px; color:var(--blue);"><i class="fas fa-bullseye"></i> Misión</h3>
+                <p style="text-align:center;">Ser la plataforma digital líder en Cundinamarca para el comercio justo de productos agrícolas frescos, garantizando transparencia y beneficio mutuo entre el campo y la ciudad.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-eye"></i> Visión</h3>
+                <p>Expandir nuestro modelo a nivel nacional, creando ecosistemas agrícolas digitales sostenibles y transparentes.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-balance-scale"></i> Valores</h3>
+                <p>Transparencia, Comercio Justo, Sostenibilidad, y Apoyo Comunitario.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-chart-line"></i> Impacto</h3>
+                <p>Hemos ayudado a más de 50 agricultores a incrementar sus ingresos netos en un 25% en el primer año.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2><i class="fas fa-users"></i> Conoce a Nuestro Equipo</h2>
+        <div class="grid cols-3" style="margin-top:20px;">
+            <div class="card" style="text-align:center;">
+                <div class="avatar" style="margin:0 auto 10px; background:var(--blue); color:white;">MT</div>
+                <h4>Manuel Tobar</h4>
+                <p style="color:var(--green-dark); font-weight: 600;">Desarrollador, administrador y director</p>
+                <small style="color:var(--muted);">Estudiante del SENA — contacto: manuelexneydertobar@gmail.com &nbsp; | &nbsp; 3042682102</small>
+            </div>
+            
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>© 2025 CampoLink. Del campo a tu mesa.</div>
+    <div style="color:var(--muted);"><i class="fas fa-envelope"></i> manuelexneydertobar@gmail.com &nbsp; | &nbsp; <i class="fas fa-phone-alt"></i> 3042682102</div>
+    </div>
+</footer>
+
+<div id="login-modal" class="modal" style="display:none;">
+    <div class="modal-content"><span class="close-btn">&times;</span><h3 id="modal-title">Iniciar Sesión</h3>
+        <form id="login-form"><input type="email" placeholder="Correo electrónico" required style="margin-bottom:10px;">
+            <input type="password" placeholder="Contraseña" required style="margin-bottom:15px;"><div id="register-fields" style="display:none;margin-bottom:15px;">
+              <input type="text" placeholder="Nombre completo" style="margin-bottom:10px;"><input type="text" placeholder="Teléfono (Opcional)"></div>
+            <button type="submit" class="btn primary" style="width:100%;">Ingresar / Registrarme</button></form>
+        <p style="text-align:center;margin-top:15px;color:var(--muted);font-size:14px;">
+            ¿No tienes cuenta? <a href="#" id="show-register" style="color:var(--green);font-weight:600;">Regístrate</a></p>
+    </div>
+</div>
+<div id="open-chat-btn"><i class="fas fa-comment-dots"></i></div>
+</div>
+
+<div id="cart-modal" class="modal" style="display:none;">
+    <div class="modal-content" style="max-width: 500px; padding: 25px;">
+        <span class="close-btn" data-close-modal="cart">&times;</span>
+        <h3 style="margin-top:0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+            <i class="fas fa-shopping-cart" style="color:var(--green);"></i> Mi Pedido
+        </h3>
+        
+        <div id="cart-items-container" style="max-height: 400px; overflow-y: auto; padding-right: 15px;">
+            <p id="cart-empty-message" style="text-align: center; color: var(--muted); padding: 20px;">
+                Tu carrito está vacío. ¡Empieza a llenar tu canasta!
+            </p>
+        </div>
+
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; font-size: 1.1em; font-weight: 600;">
+                <span>Total estimado:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button class="btn primary" id="cart-finalize" style="width: 100%; margin-top: 15px;">
+                <i class="fas fa-arrow-right"></i> Finalizar Pedido
+            </button>
+            <p style="font-size: 0.85em; color: var(--muted); text-align: center; margin-top: 10px;">
+                El precio final puede variar según la negociación con el vendedor.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="toast-notification" class="toast-notification" aria-live="polite" aria-atomic="true">
+    <div class="toast-content">
+        <i class="fas fa-check-circle toast-icon" aria-hidden="true"></i>
+        <span id="toast-message" class="toast-message">Producto añadido al carrito.</span>
+        <div class="toast-cart-summary" aria-hidden="true">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="toast-count" class="toast-count">0</span>
+        </div>
+    </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
